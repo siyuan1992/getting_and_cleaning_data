@@ -18,7 +18,7 @@ Column 11: `timeBodyGyroJerkMagMean`
 Column 12: `timeBodyGyroJerkMagStd`			
 Column 13: `freqBodyAccMagMean`	      
 Column 14: `freqBodyAccMagStd`       
-Column 15: `freqBodyAccJerkMagMean	 
+Column 15: `freqBodyAccJerkMagMean` 	 
 Column 16: `freqBodyAccJerkMagStd`   
 Column 17: `freqBodyGyroMagMean`    
 Column 18: `freqBodyGyroMagStd`     
