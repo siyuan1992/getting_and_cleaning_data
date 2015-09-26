@@ -56,7 +56,7 @@ Merged_data <- Merged_data[Names == TRUE]
 
 ## 3.Name the activities in the dataset
 colnames(activityType)  <- c('ActivityID','activityType');
-Renamed_data <- merge(Merged_data, activityType, by='ActivityID', all.x=TRUE)
+Renamed_data <- merge(Merged_data, activityType, by='ActivityID')
 colNames <- colnames(Renamed_data)
 
 ## 4.Appropriately labels the data set with descriptive variable names
