@@ -37,20 +37,22 @@ subjectTest <- read.table('./test/subject_test.txt',header=FALSE)
 xTest       <- read.table('./test/x_test.txt',header=FALSE)
 yTest       <- read.table('./test/y_test.txt',header=FALSE)
 Test <- cbind(subjectTest, yTest, xTest)
+
 # Name header
 colnames(Train) <- c('SubjectID', 'ActivityID', as.character(features[ ,2]))
 colnames(Test) <- c('SubjectID', 'ActivityID', as.character(features[ ,2]))
+
 ## 1.Merged data
 Merged_data <- rbind(Train, Test)
 
 ## 2.Extract only the measurements on the mean and standard deviation for each measurement.
 colNames <- colnames(Merged_data)
 
-logicalVector <- (grepl("Activity..",colNames) | grepl("Subject..",colNames) | 
-                     grepl("-mean..",colNames) & !grepl("-meanFreq..",colNames) & 
-                     !grepl("mean..-",colNames) | grepl("-std..",colNames) & 
-                     !grepl("-std()..-",colNames))
-Merged_data <- Merged_data[logicalVector==TRUE]
+Names <- (grepl("Activity..",colNames) | grepl("Subject..",colNames) | 
+        grepl("-mean..",colNames) & !grepl("-meanFreq..",colNames) & 
+        !grepl("mean..-",colNames) | grepl("-std..",colNames) & 
+        !grepl("-std()..-",colNames))
+Merged_data <- Merged_data[Names == TRUE]
 
 ## 3.Name the activities in the dataset
 colnames(activityType)  <- c('ActivityID','activityType');
