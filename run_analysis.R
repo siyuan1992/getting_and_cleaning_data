@@ -72,10 +72,10 @@ NoActivity <- Renamed_data[,names(Renamed_data) != 'activityType']
 # Summarizing the NoActivity table to include just the mean of each variable for each activity and each subject
 tidyData <- aggregate(NoActivity[,3:20],
                         by = list(ActivityID = NoActivity$ActivityID,
-                                SubjectID = NoActivity$SubjectID), mean) %>%
+                                SubjectID = NoActivity$SubjectID), mean)
 
 # Merging the tidyData with activityType to include descriptive acitvity names
-tidyData <- merge(activityType,by='ActivityID') %>%
+tidyData <- merge(tidyData, activityType, by='ActivityID')
 
 # Export the tidyData set 
-write.table('./tidyData.txt', row.names = FALSE, quote = FALSE)
+write.table(tidyData, './tidyData.txt', row.names = FALSE, quote = FALSE)
