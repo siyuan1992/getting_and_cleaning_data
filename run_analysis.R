@@ -49,10 +49,8 @@ Merged_data <- rbind(Train, Test)
 colNames <- colnames(Merged_data)
 
 Names <- (grepl("Activity..",colNames) | grepl("Subject..",colNames) | 
-        grepl("-mean..",colNames) & !grepl("-meanFreq..",colNames) & 
-        !grepl("mean..-",colNames) | grepl("-std..",colNames) & 
-        !grepl("-std()..-",colNames))
-Merged_data <- Merged_data[Names == TRUE]
+            grepl('mean', colNames)| grepl('std', colNames))
+Merged_data <- Merged_data[Names]
 
 ## 3.Name the activities in the dataset
 colnames(activityType)  <- c('ActivityID','activityType');
