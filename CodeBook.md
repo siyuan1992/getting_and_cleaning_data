@@ -5,7 +5,7 @@ This summarizes the data fields in `tidyData.txt`.
 Column 1: `ActivityID`	
 Column 2: `SubjectID`
 
-### Measurements
+### Features selected
 Column 3: `timeBodyAccMagMean`  
 Column 4: `timeBodyAccMagStd`       
 Column 5: `timeGravityAccMagMean`   
@@ -24,10 +24,17 @@ Column 17: `freqBodyGyroMagMean`
 Column 18: `freqBodyGyroMagStd`     
 Column 19: `freqBodyGyroJerkMagMean` 	
 Column 20: `freqBodyGyroJerkMagStd`  
+#### Notes: 
+~Mean & ~Std: the mean/standard deviation of the original feature(each column);   
+timeAcc~ & timeGyro~: the original signal;    
+timeBodyAcc~ & timeGravityAcc~: after filtering, the original signal was separated into body and gravity part;   
+timeBodyAccJerk~ & timeBodyGyroJerk~: Subsequently, the body linear acceleration and angular velocity were
+                                      derived in time to obtain Jerk signals;   
+time~ & freq~: time domain signals and frequency domain (FFT) of the signals;     
 
-### Activity types
+### Categorical/Numerical features
 Column 21: `activityType`	
-It has six typesas follows :	
+It has six types as follows :	
 WALKING (value 1): subject was walking during the test	
 WALKING_UPSTAIRS (value 2): subject was walking up a staircase during the test	
 WALKING_DOWNSTAIRS (value 3): subject was walking down a staircase during the test	
