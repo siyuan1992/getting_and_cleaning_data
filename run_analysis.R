@@ -40,10 +40,10 @@ Test <- cbind(subjectTest, yTest, xTest)
 # Name header
 colnames(Train) <- c('SubjectID', 'ActivityID', as.character(features[ ,2]))
 colnames(Test) <- c('SubjectID', 'ActivityID', as.character(features[ ,2]))
-# Merged data
+## 1.Merged data
 Merged_data <- rbind(Train, Test)
 
-## Extract only the measurements on the mean and standard deviation for each measurement.
+## 2.Extract only the measurements on the mean and standard deviation for each measurement.
 colNames <- colnames(Merged_data)
 
 logicalVector <- (grepl("Activity..",colNames) | grepl("Subject..",colNames) | 
@@ -52,12 +52,12 @@ logicalVector <- (grepl("Activity..",colNames) | grepl("Subject..",colNames) |
                      !grepl("-std()..-",colNames))
 Merged_data <- Merged_data[logicalVector==TRUE]
 
-## Name the activities in the dataset
+## 3.Name the activities in the dataset
 colnames(activityType)  <- c('ActivityID','activityType');
 Renamed_data <- merge(Merged_data, activityType, by='ActivityID', all.x=TRUE)
 colNames <- colnames(Renamed_data)
 
-## Appropriately labels the data set with descriptive variable names
+## 4.Appropriately labels the data set with descriptive variable names
 colNames <- gsub('BodyBody','Body',colNames)
 colNames <- gsub('-mean','Mean',colNames)
 colNames <- gsub('-std','Std',colNames)
@@ -66,7 +66,7 @@ colNames <- gsub("^(f)","freq",colNames)
 colNames <- gsub("\\()","",colNames)
 colnames(Renamed_data) <- colNames
 
-## Create a second, tidy data
+## 5.Create a second, tidy data
 NoActivity <- Renamed_data[,names(Renamed_data) != 'activityType'];
 
 # Summarizing the NoActivity table to include just the mean of each variable for each activity and each subject
