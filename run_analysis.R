@@ -7,18 +7,16 @@
 ## the average of each variable for each activity and each subject.
 ##########################################################################################
 
-# Clean up workspace
 rm(list = ls())
 
 ## Download and unzip the dataset:
 setwd("/Users/siyuanmeng/Downloads/")
-filename <- "getdata_dataset.zip"
 if (!file.exists(filename)){
-    fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
-    download.file(fileURL, filename, method="curl")
+    URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
+    download.file(URL, "getdata_dataset.zip", method="curl")
 }  
 if (!file.exists("UCI HAR Dataset")) { 
-    unzip(filename) 
+    unzip("getdata_dataset.zip") 
 }
 
 # Reset working directory
